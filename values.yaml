@@ -120,6 +120,15 @@ runners:
   ##
   # namespace:
 
+  ## The amount of time, in seconds, that needs to pass before the runner will 
+  ## timeout attempting to connect to the container it has just created.
+  ## ref: https://docs.gitlab.com/runner/executors/kubernetes.html
+  pollTimeout: 180
+
+  ## Set maximum build log size in kilobytes, by default set to 4096 (4MB)
+  ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section
+  outputLimit: 4096
+
   ## Distributed runners caching
   ## ref: https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/autoscale.md#distributed-runners-caching
   ##
