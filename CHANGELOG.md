@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.3.0-rc1 (2019-03-08)
+
+- Change mount of secret with S3 distributed cache credentials !64
+- Add environment variables to runner !48
+- Replace S3_CACHE_INSECURE with CACHE_S3_INSECURE !90
+- Update values.yaml to remove invalid anchor in comments !85
+- Bump used Runner version to 11.9.0-rc1 !94
+
 ## v0.2.0 (2019-02-22)
 
 - Fix the error caused by unset 'locked' value !79
