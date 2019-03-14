@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.3.0-rc2 (2019-03-14)
+
+- Bump used Runner version to 11.9.0-rc2 !96
+
 ## v0.3.0-rc1 (2019-03-08)
 
 - Change mount of secret with S3 distributed cache credentials !64
