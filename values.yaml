@@ -210,6 +210,10 @@ runners:
   ##
   # nodeSelector: {}
 
+  ## Specify pod labels for CI job pods
+  ##
+  # podLabels: {}
+
   ## Configure environment variables that will be injected to the pods that are created while
   ## the build is running. These variables are passed as parameters, i.e. `--env "NAME=VALUE"`,
   ## to `gitlab-runner register` command.
