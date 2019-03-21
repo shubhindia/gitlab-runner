@@ -170,7 +170,7 @@ runners:
     ## Use this line for access using access-id and private-key
     # secretName: gcsaccess
     ## Use this line for access using google-application-credentials file
-    # secretName: google-application-credential
+    # secretName: google-application-credentials
 
   ## Build Container specific configuration
   ##
