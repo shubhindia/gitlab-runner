@@ -20,6 +20,9 @@ spec:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '9252'
         {{- end }}
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{   $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       securityContext:
         runAsUser: 100
