@@ -98,7 +98,7 @@ runners:
   ## Specify whether the runner should be locked to a specific project: true, false. Defaults to true.
   ##
   # locked: true
-  
+
   ## Specify the tags associated with the runner. Comma-separated list of tags.
   ##
   ## ref: https://docs.gitlab.com/ce/ci/runners/#using-tags
@@ -124,7 +124,7 @@ runners:
   ##
   ## If you want to use s3 based distributing caching:
   ## First of all you need to uncomment General settings and S3 settings sections.
-  ##  
+  ##
   ## Create a secret 's3access' containing 'accesskey' & 'secretkey'
   ## ref: https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/
   ##
@@ -166,11 +166,11 @@ runners:
     # secretName: s3access
 
     ## GCS settings
-    # gcsBucketName: 
+    # gcsBucketName:
     ## Use this line for access using access-id and private-key
     # secretName: gcsaccess
     ## Use this line for access using google-application-credentials file
-    # secretName: google-application-credential
+    # secretName: google-application-credentials
 
   ## Build Container specific configuration
   ##
@@ -209,6 +209,10 @@ runners:
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##
   # nodeSelector: {}
+
+  ## Specify pod labels for CI job pods
+  ##
+  # podLabels: {}
 
   ## Specify annotations for job pods, useful for annotations such as iam.amazonaws.com/role
   # podAnnotations: {}
@@ -267,3 +271,21 @@ tolerations: []
 # envVars:
 #   - name: RUNNER_EXECUTOR
 #     value: kubernetes
+
+## list of hosts and IPs that will be injected into the pod's hosts file
+hostAliases: []
+  # Example:
+  # - ip: "127.0.0.1"
+  #   hostnames:
+  #   - "foo.local"
+  #   - "bar.local"
+  # - ip: "10.1.2.3"
+  #   hostnames:
+  #   - "foo.remote"
+  #   - "bar.remote"
+
+## Annotations to be added to manager pod
+##
+podAnnotations: {}
+  # Example:
+  # iam.amazonaws.com/role: <my_role_arn>

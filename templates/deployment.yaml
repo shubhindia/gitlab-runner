@@ -20,6 +20,9 @@ spec:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '9252'
         {{- end }}
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{   $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       securityContext:
         runAsUser: 100
@@ -135,4 +138,8 @@ spec:
     {{- if .Values.tolerations }}
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
+    {{- end }}
+    {{- if .Values.hostAliases }}
+      hostAliases:
+{{ toYaml .Values.hostAliases | indent 8 }}
     {{- end }}
