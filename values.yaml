@@ -214,6 +214,9 @@ runners:
   ##
   # podLabels: {}
 
+  ## Specify annotations for job pods, useful for annotations such as iam.amazonaws.com/role
+  # podAnnotations: {}
+
   ## Configure environment variables that will be injected to the pods that are created while
   ## the build is running. These variables are passed as parameters, i.e. `--env "NAME=VALUE"`,
   ## to `gitlab-runner register` command.

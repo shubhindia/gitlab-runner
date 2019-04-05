@@ -72,6 +72,9 @@ data:
         {{- range $key, $value := .Values.runners.podLabels }}
         --kubernetes-pod-labels {{ $key | quote }}:{{ $value | quote }} \
         {{- end }}
+        {{- range $key, $val := .Values.runners.podAnnotations }}
+        --kubernetes-pod-annotations {{ $key | quote }}:{{ $val | quote }} \
+        {{- end }}
         {{- range $key, $value := .Values.runners.env }}
         --env {{ $key | quote -}} = {{- $value | quote }} \
         {{- end }}
