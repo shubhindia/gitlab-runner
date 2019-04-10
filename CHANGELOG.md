@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.4.0-rc2 (2019-04-10)
+
+- Bump used Runner version to 11.10.0-rc2 !108
+
 ## v0.4.0-rc1 (2019-04-10)
 
 - Fix a typo in values.yaml !101
