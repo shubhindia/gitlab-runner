@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v0.4.0-rc1 (2019-04-10)
+
+- Fix a typo in values.yaml !101
+- Add pod labels for jobs !98
+- add hostAliases for pod assignment !89
+- Configurable deployment annotations !44
+- Add pod annotations for jobs !97
+- Bump used Runner version to 11.10.0-rc1 !107
+
 ## v0.3.0 (2019-03-22)
 
 - Change mount of secret with S3 distributed cache credentials !64
