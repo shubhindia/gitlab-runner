@@ -33,6 +33,37 @@ data:
       --kubernetes-image-pull-secrets {{ . | quote }} \
       {{- end }}
 
+    cat >> /home/gitlab-runner/.gitlab-runner/config.toml <<-EOF
+    {{- if .Values.runners.volumes }}
+    {{- range .Values.runners.volumes }}
+          [[runners.kubernetes.volumes.{{ .type }}]]
+          {{- range $key, $value := . }}
+          {{- if ne $key "type" }}
+            {{ $key }} = "{{ $value }}"
+          {{- end }}
+          {{- end }}
+    {{- end }}
+    {{- end }}
+
+    {{- if .Values.runners.node_selectors }}
+        [runners.kubernetes.node_selector]
+    {{- range .Values.runners.node_selectors }}
+        {{- range $key, $value := . }}
+          {{ $key }} = "{{ $value }}"
+        {{- end }}
+    {{- end }}
+    {{- end }}
+
+    {{- if .Values.runners.pod_labels }}
+        [runners.kubernetes.pod_labels]
+    {{- range .Values.runners.pod_labels }}
+        {{- range $key, $value := . }}
+          {{ $key }} = "{{ $value }}"
+        {{- end }}
+    {{- end }}
+    {{- end }}
+    EOF
+
     # Start the runner
     /entrypoint run --user=gitlab-runner \
       --working-directory=/home/gitlab-runner
