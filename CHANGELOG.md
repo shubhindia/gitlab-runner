@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## v0.4.0-rc1 (2019-04-10)
+## v0.4.0 (2019-04-22)
 
+- Bump used Runner version to 11.10.0-rc2 !108
 - Fix a typo in values.yaml !101
 - Add pod labels for jobs !98
 - add hostAliases for pod assignment !89
