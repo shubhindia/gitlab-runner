@@ -104,8 +104,10 @@ spec:
           sources:
             {{- if and .Values.runners.cache .Values.runners.cache.cacheType }}
             {{-   if eq .Values.runners.cache.cacheType "s3"}}
+            {{- if .Values.runners.cache.secretName }}
             - secret:
                 name: {{ include "gitlab-runner.cache.secret" . }}
+            {{-   end }}
             {{-   end }}
             {{-   if eq .Values.runners.cache.cacheType "gcs"}}
             - secret:
