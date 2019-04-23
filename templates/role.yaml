@@ -10,6 +10,6 @@ metadata:
     heritage: "{{ .Release.Service }}"
 rules:
 - apiGroups: [""]
-  resources: ["*"]
-  verbs: ["*"]
+  resources: ["pods", "pods/exec", "secrets"]
+  verbs: ["get", "list", "watch", "create", "patch", "delete"]
 {{- end -}}
