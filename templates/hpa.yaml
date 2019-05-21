@@ -1,0 +1,19 @@
+{{- if .Values.hpa}}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "gitlab-runner.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: {{ include "gitlab-runner.fullname" . }}
+  minReplicas: {{ .Values.hpa.minReplicas }}
+  maxReplicas: {{ .Values.hpa.maxReplicas }}
+  metrics:
+  - type: Pods
+    pods:
+      metricName: {{ .Values.hpa.metricName }} 
+      targetAverageValue: {{ .Values.hpa.targetAverageValue }}
+{{- end}}
