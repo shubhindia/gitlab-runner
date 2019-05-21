@@ -1,6 +1,6 @@
 name: gitlab-runner
 version: 0.5.0-rc3
-appVersion: 11.11.0-rc3
+appVersion: 11.11.0
 description: GitLab Runner
 keywords:
 - git
