@@ -1,13 +1,7 @@
 # CHANGELOG
 
-## v0.5.0-rc3 (2019-05-12)
-- Bump used Runner version to 11.11.0-rc3 !123
-
-## v0.5.0-rc2 (2019-05-06)
-- Bump used Runner version to 11.11.0-rc2 !119
-
-## v0.5.0-rc1 (2019-05-06)
-- Bump used Runner version to 11.11.0-rc1 !118
+## v0.5.0 (2019-05-22)
+- Bump used Runner version to 11.11.0 !126
 
 ## v0.4.1 (2019-04-24)
 - Bump used Runner version to 11.10.1 !113
