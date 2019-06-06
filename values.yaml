@@ -95,6 +95,11 @@ runners:
   ##
   # imagePullPolicy: ""
 
+  ## Defines number of concurrent requests for new job from GitLab
+  ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section
+  ##
+  # requestConcurrency: 1
+
   ## Specify whether the runner should be locked to a specific project: true, false. Defaults to true.
   ##
   # locked: true
