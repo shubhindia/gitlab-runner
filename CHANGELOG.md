@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.6.0-rc1 (2019-06-12)
+- Allow to manually build the package for development branches !120
+- When configuring cache: if no S3 secret assume IAM role !111
+- Allow to define request_concurrency value !121
+- Bump used Runner version to 12.0.0-rc1 !133
+
 ## v0.5.0 (2019-05-22)
 - Bump used Runner version to 11.11.0 !126
 
