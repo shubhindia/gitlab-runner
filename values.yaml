@@ -143,7 +143,7 @@ runners:
   ##
   ## Access using credentials file:
   ## Create a secret 'google-application-credentials' containing your application credentials file.
-  ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-cache-gcs-section
+  ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnerscachegcs-section
   ## You could configure
   ## $ kubectl create secret generic google-application-credentials \
   ##   --from-file=gcs-applicaton-credentials-file=./path-to-your-google-application-credentials-file.json
