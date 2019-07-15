@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## v0.7.0-rc2 (2019-07-15)
+- Bump used Runner version to 12.1.0-rc2 !146
 
 ## v0.7.0-rc1 (2019-07-09)
 - Fix broken anchor link for gcs cache docs !135
