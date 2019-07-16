@@ -74,6 +74,12 @@ checkInterval: 30
 ##
 # logFormat:
 
+## A custom bash script that will be executed prior to the invocation
+## gitlab-runner process
+#
+#preEntrypointScript: |
+#  echo "hello"
+
 ## For RBAC support:
 rbac:
   create: false

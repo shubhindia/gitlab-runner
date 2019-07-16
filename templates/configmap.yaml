@@ -44,6 +44,11 @@ data:
       exit 1
     fi
 
+    # Run pre-entrypoint-script
+    if ! bash /scripts/pre-entrypoint-script; then
+      exit 1
+    fi
+
     # Start the runner
     exec /entrypoint run --user=gitlab-runner \
       --working-directory=/home/gitlab-runner
@@ -113,7 +118,7 @@ data:
         exit 1
       fi
 
-      sleep 5 
+      sleep 5
     done
 
     exit 0
@@ -127,3 +132,6 @@ data:
     else
       exit 1
     fi
+
+  pre-entrypoint-script: |
+{{ .Values.preEntrypointScript | default "" | indent 4 }}
