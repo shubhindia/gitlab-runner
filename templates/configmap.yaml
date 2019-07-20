@@ -43,7 +43,7 @@ data:
     fi
 
     # Start the runner
-    /entrypoint run --user=gitlab-runner \
+    exec /entrypoint run --user=gitlab-runner \
       --working-directory=/home/gitlab-runner
 
   config.toml: |
