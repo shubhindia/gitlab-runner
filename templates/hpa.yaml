@@ -9,7 +9,7 @@ spec:
     apiVersion: extensions/v1beta1
     kind: Deployment
     name: {{ include "gitlab-runner.fullname" . }}
-  minReplicas: {{ .Values.hpa.minReplicas }}
+  minReplicas: {{ default 1 .Values.hpa.minReplicas }}
   maxReplicas: {{ .Values.hpa.maxReplicas }}
   metrics:
   - type: Pods
