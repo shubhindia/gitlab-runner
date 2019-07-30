@@ -296,8 +296,11 @@ podAnnotations: {}
 ## implementing "custom.metrics.k8s.io" using supported third party adapter
 ## Example: https://github.com/directxman12/k8s-prometheus-adapter
 ##
-hpa: {}
-  # targetAverageValue: 400m
-  # metricName: gitlab_runner_jobs
+#hpa: {}
   # minReplicas: 1
   # maxReplicas: 10
+  # metrics:
+  # - type: Pods
+  #   pods:
+  #     metricName: gitlab_runner_jobs
+  #     targetAverageValue: 400m
