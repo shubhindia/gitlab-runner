@@ -12,8 +12,5 @@ spec:
   minReplicas: {{ default 1 .Values.hpa.minReplicas }}
   maxReplicas: {{ default 1 .Values.hpa.maxReplicas }}
   metrics:
-  - type: Pods
-    pods:
-      metricName: {{ .Values.hpa.metricName }} 
-      targetAverageValue: {{ .Values.hpa.targetAverageValue }}
+{{ toYaml .Values.hpa.metrics | indent 2 }}}
 {{- end}}
