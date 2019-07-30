@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: {{ include "gitlab-runner.fullname" . }}
   minReplicas: {{ default 1 .Values.hpa.minReplicas }}
-  maxReplicas: {{ .Values.hpa.maxReplicas }}
+  maxReplicas: {{ default 1 .Values.hpa.maxReplicas }}
   metrics:
   - type: Pods
     pods:
