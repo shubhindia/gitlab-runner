@@ -12,5 +12,5 @@ spec:
   minReplicas: {{ default 1 .Values.hpa.minReplicas }}
   maxReplicas: {{ default 1 .Values.hpa.maxReplicas }}
   metrics:
-{{ toYaml .Values.hpa.metrics | indent 2 }}}
+{{ toYaml .Values.hpa.metrics | indent 2 }}
 {{- end}}
