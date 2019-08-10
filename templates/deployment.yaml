@@ -27,6 +27,7 @@ spec:
       securityContext:
         runAsUser: 100
         fsGroup: 65533
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       initContainers:
       - name: configure
         command: ['sh', '/config/configure']
@@ -53,7 +54,7 @@ spec:
         lifecycle:
           preStop:
             exec:
-              command: ["gitlab-runner", "unregister", "--all-runners"]
+              command: ["/entrypoint", "unregister", "--all-runners"]
         {{- end }}
         imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         command: ["/bin/bash", "/scripts/entrypoint"]

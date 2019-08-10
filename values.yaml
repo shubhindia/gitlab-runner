@@ -39,6 +39,14 @@ imagePullPolicy: IfNotPresent
 ##
 unregisterRunners: true
 
+## When stopping ther runner, give it time to wait for it's jobs to terminate.
+##
+## Updating the runner's chart version or configuration will cause the runner container
+## to be terminated with a graceful stop request. terminationGracePeriodSeconds
+## instructs Kubernetes to wait long enough for the runner pod to terminate gracefully.
+## ref: https://docs.gitlab.com/runner/commands/#signals
+terminationGracePeriodSeconds: 3600
+
 ## Set the certsSecretName in order to pass custom certficates for GitLab Runner to use
 ## Provide resource name for a Kubernetes Secret Object in the same namespace,
 ## this is used to populate the /etc/gitlab-runner/certs directory
