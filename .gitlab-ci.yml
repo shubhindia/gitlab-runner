@@ -1,4 +1,4 @@
-image: registry.gitlab.com/charts/alpine-helm
+image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-charts-build-base
 
 stages:
   - test
