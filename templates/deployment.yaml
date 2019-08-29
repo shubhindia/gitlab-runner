@@ -32,6 +32,7 @@ spec:
       - name: configure
         command: ['sh', '/config/configure']
         image: {{ include "gitlab-runner.image" . }}
+        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         env:
         {{ include "gitlab-runner.runner-env-vars" . | indent 8 }}
         volumeMounts:
@@ -50,13 +51,13 @@ spec:
       containers:
       - name: {{ include "gitlab-runner.fullname" . }}
         image: {{ include "gitlab-runner.image" . }}
+        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         {{- if and .Values.unregisterRunners .Values.runnerRegistrationToken }}
         lifecycle:
           preStop:
             exec:
               command: ["/entrypoint", "unregister", "--all-runners"]
         {{- end }}
-        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         command: ["/bin/bash", "/scripts/entrypoint"]
         env:
         {{ include "gitlab-runner.runner-env-vars" . | indent 8 }}
