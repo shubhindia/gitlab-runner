@@ -30,6 +30,8 @@ release beta:
     S3_URL: s3://${S3_BUCKET}${S3_PATH}
     REPO_URL: https://${S3_BUCKET}.s3.amazonaws.com${S3_PATH}
   script:
+  - apk add --no-cache py-pip
+  - pip install awscli
   - helm init --client-only
   - 'beta_info=$(git describe --long | sed -r "s/v[0-9\.]+(-rc[0-9]+)?-//")'
   - 'build_time=$(date +%s)'
