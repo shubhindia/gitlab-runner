@@ -28,6 +28,7 @@ release beta:
   stage: release
   variables:
     S3_URL: s3://${S3_BUCKET}${S3_PATH}
+    REPO_URL: https://${S3_BUCKET}.s3.amazonaws.com${S3_PATH}
   script:
   - helm init --client-only
   - 'beta_info=$(git describe --long | sed -r "s/v[0-9\.]+(-rc[0-9]+)?-//")'
@@ -38,10 +39,11 @@ release beta:
   - mkdir -p public/
   - aws s3 cp ${S3_URL}/index.yaml public/index.yaml || true
   - (cd public; helm package ../)
-  - helm repo index public --merge public/index.yaml --url https://${S3_BUCKET}.s3.amazonaws.com${S3_PATH}
+  - helm repo index public --merge public/index.yaml --url ${REPO_URL}
   - aws s3 sync public ${S3_URL} --acl public-read
+  - 'echo "To install repository run: helm repo add gitlab-runner-beta ${REPO_URL} && helm repo update"'
   only:
-  - master@charts/gitlab-runner
+  - master@gitlab-org/charts/gitlab-runner
   tags:
   - release
 
