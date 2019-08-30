@@ -121,11 +121,13 @@ runners:
   ##
   # tags: ""
 
-  ## Specify if jobs without tags should be run. Defaults to true if no tags are specificied else false. 
+  ## Specify if jobs without tags should be run.
+  ## If not specified, Runner will default to true if no tags were specified. In other case it will
+  ## default to false.
   ##
   ## ref: https://docs.gitlab.com/ce/ci/runners/#allowing-runners-with-tags-to-pick-jobs-without-tags
   ##
-  # untaggedJobs: true
+  # runUntagged: true
 
   ## Run all containers with the privileged flag enabled
   ## This will allow the docker:dind image to run if you need to run Docker

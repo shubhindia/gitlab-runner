@@ -78,11 +78,9 @@ data:
         {{- range $key, $value := .Values.runners.env }}
         --env {{ $key | quote -}} = {{- $value | quote }} \
         {{- end }}
-        {{ if and (hasKey .Values.runners "untaggedJobs") .Values.runners.untaggedJobs -}}
+        {{- if and (hasKey .Values.runners "runUntagged") .Values.runners.runUntagged }}
         --run-untagged=true \
-        {{ else if  and (hasKey .Values.runners "untaggedJobs") (not .Values.runners.untaggedJobs) -}}
-        --run-untagged=false \
-        {{ end -}}
+        {{- end }}
         --non-interactive
 
       retval=$?
