@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.9.0-rc1 (2019-09-11)
+
+- Enabling horizontal pod auto-scaling based on custom metrics !127
+- Change base image used for CI jobs !156
+- Remove DJ as a listed chart maintainer !160
+- Release beta version on master using Bleeding Edge image !155
+- Update definition of 'release beta' CI jobs !164
+- Fix certs path in the comment in values file !148
+- Implement support for run-untagged option !140
+- Use new location for helm charts repo !162
+- Follow-up to adding run-untagged support !165
+
 ## v0.8.0 (2019-08-22)
 
 - Add suport for graceful stop !150
