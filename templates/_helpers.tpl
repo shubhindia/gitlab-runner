@@ -37,7 +37,9 @@ Define the name of the secret containing the tokens
 Define the name of the s3 cache secret
 */}}
 {{- define "gitlab-runner.cache.secret" -}}
-{{- default "s3access" .Values.runners.cache.secretName | quote -}}
+{{- if .Values.runners.cache.secretName -}}
+{{- .Values.runners.cache.secretName | quote -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
