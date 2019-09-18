@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.9.0-rc2 (2019-09-18)
+
+- Update to GitLab Runner 12.3.0-rc2
+
 ## v0.9.0-rc1 (2019-09-11)
 
 - Enabling horizontal pod auto-scaling based on custom metrics !127
