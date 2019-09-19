@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.9.0-rc3 (2019-09-19)
+
+- Use updated project path to release helm chart !172
+
 ## v0.9.0-rc2 (2019-09-18)
 
 - Update to GitLab Runner 12.3.0-rc2
