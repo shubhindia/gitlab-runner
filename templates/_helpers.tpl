@@ -60,7 +60,7 @@ Define the image, using .Chart.AppVersion and GitLab Runner image as a default v
 {{- define "gitlab-runner.image" }}
 {{-   $appVersion := .Chart.AppVersion -}}
 {{-   if ne $appVersion "bleeding" -}}
-{{-     $appVersion = printf "v%s" $appVersion -}}
+{{-     $appVersion := printf "v%s" $appVersion -}}
 {{-   end -}}
 {{-   $image := printf "gitlab/gitlab-runner:alpine-%s" $appVersion -}}
 {{-   default $image .Values.image }}
