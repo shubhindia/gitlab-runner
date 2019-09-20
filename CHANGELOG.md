@@ -1,15 +1,8 @@
 # CHANGELOG
 
-## v0.9.0-rc3 (2019-09-19)
+## v0.9.0 (2019-09-20)
 
 - Use updated project path to release helm chart !172
-
-## v0.9.0-rc2 (2019-09-18)
-
-- Update to GitLab Runner 12.3.0-rc2
-
-## v0.9.0-rc1 (2019-09-11)
-
 - Enabling horizontal pod auto-scaling based on custom metrics !127
 - Change base image used for CI jobs !156
 - Remove DJ as a listed chart maintainer !160
