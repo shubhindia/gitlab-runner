@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## v0.9.0-rc1 (2019-09-11)
+## v0.9.0 (2019-09-20)
 
+- Use updated project path to release helm chart !172
 - Enabling horizontal pod auto-scaling based on custom metrics !127
 - Change base image used for CI jobs !156
 - Remove DJ as a listed chart maintainer !160
