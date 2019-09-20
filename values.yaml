@@ -69,6 +69,11 @@ checkInterval: 30
 ##
 # logLevel:
 
+## Configure GitLab Runner's logging format. Available values are: runner, text, json
+## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section
+##
+# logFormat:
+
 ## For RBAC support:
 rbac:
   create: false
