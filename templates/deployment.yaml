@@ -118,7 +118,7 @@ spec:
             {{-   end }}
             {{-   if eq .Values.runners.cache.cacheType "gcs"}}
             - secret:
-                name: {{ include "gitlab-runner.cache.secret" . }}
+                name: {{ default "s3access" (include "gitlab-runner.cache.secret" .) }}
             {{-   end }}
             {{- end }}
             - secret:
