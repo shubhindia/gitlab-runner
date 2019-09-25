@@ -12,7 +12,6 @@ spec:
   selector:
     matchLabels:
       app: {{ include "gitlab-runner.fullname" . }}
-      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
