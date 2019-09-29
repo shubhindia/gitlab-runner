@@ -9,6 +9,13 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 rules:
+{{- if .Values.podSecurityPolicy.enabled -}}
+- apiGroups: ['policy']
+  resources: ['podsecuritypolicies']
+  verbs:     ['use']
+  resourceNames:
+  - {{ template "gitlab-runner.fullname" . }}
+{{ end }}
 - apiGroups: [""]
   {{- if .Values.rbac.resources }}
   resources: [{{ join ", " .Values.rbac.resources }}]
