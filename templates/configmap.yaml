@@ -84,7 +84,7 @@ data:
         {{- if and (hasKey .Values.runners "runUntagged") .Values.runners.runUntagged }}
         --run-untagged=true \
         {{- end }}
-        {- if and (hasKey .Values.runners "protected") .Values.runners.protected }}
+        {{- if and (hasKey .Values.runners "protected") .Values.runners.protected }}
         --access-level="ref_protected" \
         {{- end }}
         --non-interactive
