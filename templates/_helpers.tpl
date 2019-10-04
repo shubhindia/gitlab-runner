@@ -58,10 +58,8 @@ Template runners.cache.s3ServerAddress in order to allow overrides from external
 Define the image, using .Chart.AppVersion and GitLab Runner image as a default value
 */}}
 {{- define "gitlab-runner.image" }}
-{{-   $appVersion := .Chart.AppVersion -}}
-{{-   if ne $appVersion "bleeding" -}}
-{{-     $appVersion = printf "v%s" $appVersion -}}
-{{-   end -}}
+{{-   $appVersion := ternary "bleeding" (print "v" .Chart.AppVersion) (eq .Chart.AppVersion "bleeding") -}}
 {{-   $image := printf "gitlab/gitlab-runner:alpine-%s" $appVersion -}}
 {{-   default $image .Values.image }}
 {{- end -}}
+
