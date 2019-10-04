@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.9.1 (2019-10-04)
+
+- Fix image version detection for old helm versions !173
+
 ## v0.9.0 (2019-09-20)
 
 - Use updated project path to release helm chart !172
