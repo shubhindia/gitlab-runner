@@ -1,18 +1,24 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "gitlab-runner.fullname" . }}
+  name: {{ include "gitlab-runner.fullname" . }}
   labels:
-    app: {{ template "gitlab-runner.fullname" . }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    app: {{ include "gitlab-runner.fullname" . }}
+    chart: {{ include "gitlab-runner.chart" . }}
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "gitlab-runner.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ template "gitlab-runner.fullname" . }}
+        app: {{ include "gitlab-runner.fullname" . }}
+        chart: {{ include "gitlab-runner.chart" . }}
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
       annotations:
         checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
@@ -20,41 +26,50 @@ spec:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '9252'
         {{- end }}
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{   $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       securityContext:
         runAsUser: 100
         fsGroup: 65533
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       initContainers:
-        - name: configure
-          command: ['sh', '/config/configure']
-          image: {{ .Values.init.image }}:{{ .Values.init.tag }}
-          volumeMounts:
-          - name: runner-secrets
-            mountPath: /secrets
-            readOnly: false
-          - name: scripts
-            mountPath: /config
-            readOnly: true
-          - name: init-runner-secrets
-            mountPath: /init-secrets
-            readOnly: true
-      serviceAccountName: {{ if .Values.rbac.create }}{{ template "gitlab-runner.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end }}
+      - name: configure
+        command: ['sh', '/config/configure']
+        image: {{ include "gitlab-runner.image" . }}
+        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
+        env:
+        {{ include "gitlab-runner.runner-env-vars" . | indent 8 }}
+        volumeMounts:
+        - name: runner-secrets
+          mountPath: /secrets
+          readOnly: false
+        - name: scripts
+          mountPath: /config
+          readOnly: true
+        - name: init-runner-secrets
+          mountPath: /init-secrets
+          readOnly: true
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+      serviceAccountName: {{ if .Values.rbac.create }}{{ include "gitlab-runner.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end }}
       containers:
-      - name: {{ template "gitlab-runner.fullname" . }}
-        image: {{ .Values.image }}
+      - name: {{ include "gitlab-runner.fullname" . }}
+        image: {{ include "gitlab-runner.image" . }}
+        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         {{- if and .Values.unregisterRunners .Values.runnerRegistrationToken }}
         lifecycle:
           preStop:
             exec:
-              command: ["gitlab-runner", "unregister", "--all-runners"]
+              command: ["/entrypoint", "unregister", "--all-runners"]
         {{- end }}
-        imagePullPolicy: {{ default "" .Values.imagePullPolicy | quote }}
         command: ["/bin/bash", "/scripts/entrypoint"]
         env:
         {{ include "gitlab-runner.runner-env-vars" . | indent 8 }}
         livenessProbe:
           exec:
-            command: ["/usr/bin/pgrep","gitlab.*runner"]
+            command: ["/bin/bash", "/scripts/check-live"]
           initialDelaySeconds: 60
           timeoutSeconds: 1
           periodSeconds: 10
@@ -95,17 +110,20 @@ spec:
       - name: init-runner-secrets
         projected:
           sources:
-            {{- if .Values.runners.cache }}
+            {{- if and .Values.runners.cache .Values.runners.cache.cacheType }}
+            {{-   if and (include "gitlab-runner.cache.secret" .) (eq .Values.runners.cache.cacheType "s3") }}
             - secret:
-                name: {{ template "gitlab-runner.cache.secret" . }}
-                items:
-                  - key: accesskey
-                    path: s3-access-key
-                  - key: secretkey
-                    path: s3-secret-key
+                name: {{ include "gitlab-runner.cache.secret" . }}
+            {{-   end }}
+            {{-   if eq .Values.runners.cache.cacheType "gcs"}}
+            - secret:
+                # Outdated default secret "s3access" kept for compatibilty with older installs using it.
+                # Will be removed in next major release: https://gitlab.com/gitlab-org/charts/gitlab-runner/merge_requests/177
+                name: {{ default "s3access" (include "gitlab-runner.cache.secret" .) }}
+            {{-   end }}
             {{- end }}
             - secret:
-                name: {{ template "gitlab-runner.secret" . }}
+                name: {{ include "gitlab-runner.secret" . }}
                 items:
                   - key: runner-registration-token
                     path: runner-registration-token
@@ -118,4 +136,20 @@ spec:
       {{- end }}
       - name: scripts
         configMap:
-          name: {{ template "gitlab-runner.fullname" . }}
+          name: {{ include "gitlab-runner.fullname" . }}
+    {{- if .Values.affinity }}
+      affinity:
+{{ toYaml .Values.affinity | indent 8 }}
+    {{- end }}
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
+    {{- if .Values.tolerations }}
+      tolerations:
+{{ toYaml .Values.tolerations | indent 8 }}
+    {{- end }}
+    {{- if .Values.hostAliases }}
+      hostAliases:
+{{ toYaml .Values.hostAliases | indent 8 }}
+    {{- end }}

@@ -1,12 +1,18 @@
 {{- define "gitlab-runner.runner-env-vars" }}
 - name: CI_SERVER_URL
-  value: {{ template "gitlab-runner.gitlabUrl" . }}
+  value: {{ include "gitlab-runner.gitlabUrl" . }}
 - name: CLONE_URL
   value: {{ default "" .Values.runners.cloneUrl | quote }}
+- name: RUNNER_REQUEST_CONCURRENCY
+  value: {{ default 1 .Values.runners.requestConcurrency | quote }}
 - name: RUNNER_EXECUTOR
   value: "kubernetes"
 - name: REGISTER_LOCKED
-  value: {{ .Values.runners.locked | quote | default "\"true\"" }}
+  {{ if or (not (hasKey .Values.runners "locked")) .Values.runners.locked -}}
+  value: "true"
+  {{- else -}}
+  value: "false"
+  {{- end }}
 - name: RUNNER_TAG_LIST
   value: {{ default "" .Values.runners.tags | quote }}
 - name: KUBERNETES_IMAGE
@@ -52,7 +58,7 @@
 - name: KUBERNETES_PULL_POLICY
   value: {{ default "" .Values.runners.imagePullPolicy | quote }}
 {{- if .Values.runners.cache -}}
-{{ include "gitlab-runner.cache_s3" . }}
+{{ include "gitlab-runner.cache" . }}
 {{- end }}
 {{- if .Values.envVars -}}
 {{ range .Values.envVars }}
