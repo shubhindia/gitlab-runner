@@ -239,6 +239,11 @@ runners:
   ##
   # nodeSelector: {}
 
+  ## Specify node tolerations for CI job pods assignment
+  ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+  ##
+  # nodeTolerations: {}
+
   ## Specify pod labels for CI job pods
   ##
   # podLabels: {}
