@@ -73,7 +73,7 @@ data:
         --kubernetes-node-selector {{ $key | quote }}:{{ $val | quote }} \
         {{- end }}
         {{- range $key, $val := .Values.runners.nodeTolerations }}
-        --kubernetes-node-tolerations {{ $key | quote }}:{{ $val | quote }} \
+        --kubernetes-node-tolerations {{ $key | quote }}={{ $val | quote }} \
         {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
         --kubernetes-pod-labels {{ $key | quote }}:{{ $value | quote }} \
