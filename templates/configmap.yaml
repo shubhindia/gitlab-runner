@@ -73,7 +73,7 @@ data:
         --kubernetes-node-selector {{ $key | quote }}:{{ $val | quote }} \
         {{- end }}
         {{- range .Values.runners.nodeTolerations }}
-        {{- if or (not (hasKey . "operator")) (eq .operator "Equal") }}
+        {{- if eq (.operator | default "Equal") "Equal" }}
         --kubernetes-node-tolerations {{ .key | quote }}={{ .value | quote }}:{{ .effect | quote }} \
         {{- else if eq .operator "Exists" }}
         --kubernetes-node-tolerations {{ .key | quote }}:{{ .effect | quote }} \
