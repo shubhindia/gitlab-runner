@@ -1,12 +1,8 @@
 # CHANGELOG
 
-## v0.10.0-rc2 (2019-10-19)
+## v0.10.0 (2019-10-21)
 
-- Updated GitLab Runner to 12.4.0-rc2
-
-## v0.10.0-rc1 (2019-10-09)
-
-- Updated GitLab Runner to 12.4.0-rc1
+- Updated GitLab Runner to 12.4.0
 - Use updated project path to release helm chart !172
 - Update resources API to stable verson !167
 - Add support for specifying log format !170
