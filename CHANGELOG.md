@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.10.1 (2019-10-28)
+
+- Update GitLab Runner to 12.4.1
+
 ## v0.10.0 (2019-10-21)
 
 - Updated GitLab Runner to 12.4.0
