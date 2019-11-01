@@ -134,6 +134,11 @@ runners:
   ##
   # runUntagged: true
 
+  ## Specify whether the runner should only run protected branches.
+  ## Defaults to False.
+  ##
+  # protected: true
+  
   ## Run all containers with the privileged flag enabled
   ## This will allow the docker:dind image to run if you need to run Docker
   ## commands. Please read the docs before turning this on:
