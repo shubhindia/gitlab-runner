@@ -78,7 +78,7 @@ data:
         {{-   else if eq .operator "Exists" }}
         --kubernetes-node-tolerations {{ .key | quote }}:{{ .effect | quote }} \
         {{-   else }}
-        {{- fail (printf ".runners.nodeTolerations[x].operator only support value in ['Equal', 'Exists']. To support new value (`.operator: %s`), you are encouraged to submit MR/raise issue at official gitlab helmcharts - gitlab-runner (https://gitlab.com/gitlab-org/charts/gitlab-runner)" .operator) }}
+        {{-     fail (printf ".runners.nodeTolerations[x].operator only support value in ['Equal', 'Exists']. To support new value (`.operator: %s`), you are encouraged to submit MR/raise issue at official gitlab helmcharts - gitlab-runner (https://gitlab.com/gitlab-org/charts/gitlab-runner)" .operator) }}
         {{-   end }}
         {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
