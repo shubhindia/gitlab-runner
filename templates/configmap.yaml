@@ -73,13 +73,13 @@ data:
         --kubernetes-node-selector {{ $key | quote }}:{{ $val | quote }} \
         {{- end }}
         {{- range .Values.runners.nodeTolerations }}
-        {{- if eq (.operator | default "Equal") "Equal" }}
+        {{-   if eq (.operator | default "Equal") "Equal" }}
         --kubernetes-node-tolerations {{ .key | quote }}={{ .value | quote }}:{{ .effect | quote }} \
-        {{- else if eq .operator "Exists" }}
+        {{-   else if eq .operator "Exists" }}
         --kubernetes-node-tolerations {{ .key | quote }}:{{ .effect | quote }} \
-        {{- else }}
+        {{-   else }}
         {{- fail (printf ".runners.nodeTolerations[x].operator only support value in ['Equal', 'Exists']. To support new value (`.operator: %s`), you are encouraged to submit MR/raise issue at official gitlab helmcharts - gitlab-runner (https://gitlab.com/gitlab-org/charts/gitlab-runner)" .operator) }}
-        {{- end }}
+        {{-   end }}
         {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
         --kubernetes-pod-labels {{ $key | quote }}:{{ $value | quote }} \
