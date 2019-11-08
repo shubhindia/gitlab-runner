@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.11.0-rc1 (2019-11-08)
+
+- Variables for RUNNER_OUTPUT_LIMIT, and KUBERNETES_POLL_TIMEOUT !50
+- Add support for register protected Runners !185
+
 ## v0.10.1 (2019-10-28)
 
 - Update GitLab Runner to 12.4.1
