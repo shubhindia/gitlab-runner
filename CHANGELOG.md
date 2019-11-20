@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.11.0-rc1 (2019-11-08)
+## v0.11.0 (2019-11-20)
 
 - Variables for RUNNER_OUTPUT_LIMIT, and KUBERNETES_POLL_TIMEOUT !50
 - Add support for register protected Runners !185
