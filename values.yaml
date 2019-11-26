@@ -333,6 +333,12 @@ podAnnotations: {}
   # Example:
   # iam.amazonaws.com/role: <my_role_arn>
 
+## Labels to be added to manager pod
+##
+podLabels: {}
+  # Example:
+  # owner.team: <my_cool_team>
+
 ## HPA support for custom metrics:
 ## This section enables runners to autoscale based on defined custom metrics.
 ## In order to use this functionality, Need to enable a custom metrics API server by
