@@ -78,7 +78,7 @@ data:
         {{-   else if eq .operator "Exists" }}
         --kubernetes-node-tolerations {{ .key | quote }}:{{ .effect | quote }} \
         {{-   else }}
-        {{-     fail ".runners.nodeTolerations[x].operator currently only support value in ['Equal', 'Exists']" }}
+        {{-     fail ".runners.nodeTolerations[x].operator currently only support value in ['Equal', 'Exists']." }}
         {{-   end }}
         {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
