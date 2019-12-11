@@ -31,8 +31,10 @@ spec:
         {{- end }}
     spec:
       securityContext:
-        runAsUser: 100
-        fsGroup: 65533
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        {{- if .Values.securityContext.fsGroup }}
+        fsGroup: {{ .Values.securityContext.fsGroup }}
+        {{- end}}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       initContainers:
       - name: configure

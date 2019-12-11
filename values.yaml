@@ -275,6 +275,14 @@ runners:
   #   NAME: VALUE
 
 
+## Configure securitycontext
+## ref: http://kubernetes.io/docs/user-guide/security-context/
+##
+securityContext:
+  fsGroup: 65533
+  runAsUser: 100
+
+
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
