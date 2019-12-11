@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.12.0-rc1 (2019-12-11)
+
+- Add `apiVersion: v1` to chart.yaml !195
+- Add documentation to protected Runners !193
+- Make securityContext configurable !199
+
 ## v0.11.0 (2019-11-20)
 
 - Variables for RUNNER_OUTPUT_LIMIT, and KUBERNETES_POLL_TIMEOUT !50
