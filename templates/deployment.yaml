@@ -53,6 +53,11 @@ spec:
         - name: init-runner-secrets
           mountPath: /init-secrets
           readOnly: true
+        {{- if .Values.certsSecretName }}
+        - name: custom-certs
+          readOnly: true
+          mountPath: /home/gitlab-runner/.gitlab-runner/certs/
+        {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
       serviceAccountName: {{ if .Values.rbac.create }}{{ include "gitlab-runner.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end }}
