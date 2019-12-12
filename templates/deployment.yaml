@@ -19,6 +19,9 @@ spec:
         chart: {{ include "gitlab-runner.chart" . }}
         release: "{{ .Release.Name }}"
         heritage: "{{ .Release.Service }}"
+        {{- range $key, $value := .Values.podLabels }}
+        {{   $key }}: {{ $value | quote }}
+        {{- end }}
       annotations:
         checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
