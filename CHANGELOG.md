@@ -1,10 +1,11 @@
 # CHANGELOG
 
-## v0.12.0-rc1 (2019-12-11)
+## v0.12.0 (2019-12-22)
 
 - Add `apiVersion: v1` to chart.yaml !195
 - Add documentation to protected Runners !193
 - Make securityContext configurable !199
+- Update GitLab Runner version to 12.6.0
 
 ## v0.11.0 (2019-11-20)
 
