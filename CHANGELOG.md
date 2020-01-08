@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.13.0-rc1 (2020-01-08)
+
+- Add podLabels to the deployment !198
+- Mount custom-certs in configure init container !202
+
 ## v0.12.0 (2019-12-22)
 
 - Add `apiVersion: v1` to chart.yaml !195
