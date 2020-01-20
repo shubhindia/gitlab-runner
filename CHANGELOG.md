@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.13.0-rc1 (2020-01-08)
+## v0.13.0 (2020-01-20)
 
 - Add podLabels to the deployment !198
 - Mount custom-certs in configure init container !202
