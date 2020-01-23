@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.13.1 (2020-01-23)
+
+- Update GitLab Runner to 12.7.1
+
 ## v0.13.0 (2020-01-20)
 
 - Add podLabels to the deployment !198
