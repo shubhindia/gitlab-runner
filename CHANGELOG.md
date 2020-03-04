@@ -1,5 +1,3 @@
-# CHANGELOG
-
 ## v0.14.0 (2020-02-22)
 
 - Update GitLab Runner version to 12.8.0
