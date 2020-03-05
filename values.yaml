@@ -39,7 +39,7 @@ imagePullPolicy: IfNotPresent
 ##
 unregisterRunners: true
 
-## When stopping ther runner, give it time to wait for it's jobs to terminate.
+## When stopping the runner, give it time to wait for it's jobs to terminate.
 ##
 ## Updating the runner's chart version or configuration will cause the runner container
 ## to be terminated with a graceful stop request. terminationGracePeriodSeconds
