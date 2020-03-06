@@ -1,19 +1,22 @@
 default_scope: other
 names:
-  documentation: Documentation changes
-  fix: Bug fixes
   new-feature: New features
-  other: Other changes
   security-fix: Security fixes
-  technical-dept-reduction: Technical dept reduction
+  fix: Bug fixes
+  maintenance: Maintenance
+  documentation: Documentation changes
+  other: Other changes
 order:
 - new-feature
 - security-fix
 - fix
-- technical-dept-reduction
+- maintenance
 - documentation
 - other
 label_matchers:
+- labels:
+  - documentation
+  scope: documentation
 - labels:
   - feature
   scope: new-feature
@@ -24,11 +27,10 @@ label_matchers:
   - bug
   scope: fix
 - labels:
-  - backstage
-  scope: technical-dept-reduction
+  - technical debt
+  scope: maintenance
 - labels:
-  - documentation
-  scope: documentation
+  - backstage
+  scope: maintenance
 authorship_labels:
 - Community contribution
-
