@@ -89,6 +89,12 @@ rbac:
   ##
   # serviceAccountName: default
 
+  ## Specify annotations for Service Accounts, useful for annotations such as eks.amazonaws.com/role-arn
+  ##
+  ## ref: https://docs.aws.amazon.com/eks/latest/userguide/specify-service-account-role.html
+  ##
+  # serviceAccountAnnotations: {}
+
 ## Configure integrated Prometheus metrics exporter
 ## ref: https://docs.gitlab.com/runner/monitoring/#configuration-of-the-metrics-http-server
 metrics:
