@@ -54,7 +54,7 @@ data:
     log_format = {{ .Values.logFormat | quote }}
     {{- end }}
     {{- if .Values.metrics.enabled }}
-    listen_address = '[::]:9252'
+    listen_address = ':9252'
     {{- end }}
   configure: |
     set -e
