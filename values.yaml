@@ -186,7 +186,7 @@ runners:
   ## ref: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnerscachegcs-section
   ## You could configure
   ## $ kubectl create secret generic google-application-credentials \
-  ##   --from-file=gcs-applicaton-credentials-file=./path-to-your-google-application-credentials-file.json
+  ##   --from-file=gcs-application-credentials-file=./path-to-your-google-application-credentials-file.json
   ## ref: https://kubernetes.io/docs/concepts/configuration/secret/
   ##
   ## Access using access-id and private-key:
