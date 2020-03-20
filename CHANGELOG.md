@@ -1,8 +1,8 @@
-## v0.15.0-rc1 (2020-03-10)
+## v0.15.0 (2020-03-20)
 
 ### Maintenance
 
-- Update GitLab Runner version to 12.9.0-rc1
+- Update GitLab Runner version to 12.9.0
 - Update changelog generator configuration !212
 - Replace changelog entries generation script !209
 
