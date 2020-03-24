@@ -46,8 +46,6 @@ release beta:
   - 'echo "To install repository run: helm repo add gitlab-runner-beta ${REPO_URL} && helm repo update"'
   only:
   - master@gitlab-org/charts/gitlab-runner
-  tags:
-  - release
 
 release stable:
   stage: release
