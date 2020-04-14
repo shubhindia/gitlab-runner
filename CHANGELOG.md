@@ -1,3 +1,24 @@
+## v0.16.0-rc1 (2020-04-14)
+
+### New features
+
+- Add Service Account annotation support !211 (David Rosson @davidrosson)
+
+### Bug fixes
+
+- Support correct spelling of GCS secret !214 (Arthur Wiebe @arthur65)
+
+### Maintenance
+
+- Remove dependency of `gitlab-runner-builder` runner !221
+- Fix linting for forks with a different name than "gitlab-runner" !218
+- Install gitlab-changelog installation !217
+
+### Other changes
+
+- Update GitLab Runner version to 12.10.0-rc1
+- Change listen address to not force IPv6 !213 (Fábio Matavelli @fabiomatavelli)
+
 ## v0.15.0 (2020-03-20)
 
 ### Maintenance
