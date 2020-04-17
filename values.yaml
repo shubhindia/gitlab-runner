@@ -227,9 +227,13 @@ runners:
   ##
   builds: {}
     # cpuLimit: 200m
+    # cpuLimitOverwriteMaxAllowed: 400m
     # memoryLimit: 256Mi
+    # memoryLimitOverwriteMaxAllowed: 512Mi
     # cpuRequests: 100m
+    # cpuRequestsOverwriteMaxAllowed: 200m
     # memoryRequests: 128Mi
+    # memoryRequestsOverwriteMaxAllowed: 256Mi
 
   ## Service Container specific configuration
   ##
