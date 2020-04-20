@@ -1,3 +1,9 @@
+## v0.16.0-rc2 (2020-04-21)
+
+### Other changes
+
+- Update GitLab Runner version to 12.10.0-rc2
+
 ## v0.16.0-rc1 (2020-04-14)
 
 ### New features
