@@ -1,4 +1,4 @@
-## v0.16.0-rc1 (2020-04-14)
+## v0.16.0 (2020-04-22)
 
 ### New features
 
@@ -16,7 +16,7 @@
 
 ### Other changes
 
-- Update GitLab Runner version to 12.10.0-rc1
+- Update GitLab Runner version to 12.10.1
 - Change listen address to not force IPv6 !213 (Fábio Matavelli @fabiomatavelli)
 
 ## v0.15.0 (2020-03-20)
