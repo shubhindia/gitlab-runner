@@ -1,7 +1,64 @@
-# CHANGELOG
+## v0.16.0 (2020-04-22)
 
-## v0.10.0-rc1 (2019-10-09)
+### New features
 
+- Add Service Account annotation support !211 (David Rosson @davidrosson)
+
+### Bug fixes
+
+- Support correct spelling of GCS secret !214 (Arthur Wiebe @arthur65)
+
+### Maintenance
+
+- Remove dependency of `gitlab-runner-builder` runner !221
+- Fix linting for forks with a different name than "gitlab-runner" !218
+- Install gitlab-changelog installation !217
+
+### Other changes
+
+- Update GitLab Runner version to 12.10.1
+- Change listen address to not force IPv6 !213 (Fábio Matavelli @fabiomatavelli)
+
+## v0.15.0 (2020-03-20)
+
+### Maintenance
+
+- Update GitLab Runner version to 12.9.0
+- Update changelog generator configuration !212
+- Replace changelog entries generation script !209
+
+### Other changes
+
+- Fix values.yaml typo !210 (Brian Choy @bycEEE)
+
+## v0.14.0 (2020-02-22)
+
+- Update GitLab Runner version to 12.8.0
+
+## v0.13.0 (2020-01-20)
+
+- Add podLabels to the deployment !198
+- Mount custom-certs in configure init container !202
+
+## v0.12.0 (2019-12-22)
+
+- Add `apiVersion: v1` to chart.yaml !195
+- Add documentation to protected Runners !193
+- Make securityContext configurable !199
+- Update GitLab Runner version to 12.6.0
+
+## v0.11.0 (2019-11-20)
+
+- Variables for RUNNER_OUTPUT_LIMIT, and KUBERNETES_POLL_TIMEOUT !50
+- Add support for register protected Runners !185
+
+## v0.10.1 (2019-10-28)
+
+- Update GitLab Runner to 12.4.1
+
+## v0.10.0 (2019-10-21)
+
+- Updated GitLab Runner to 12.4.0
 - Use updated project path to release helm chart !172
 - Update resources API to stable verson !167
 - Add support for specifying log format !170
