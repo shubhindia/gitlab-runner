@@ -74,6 +74,13 @@ data:
         {{- range $key, $val := .Values.runners.nodeSelector }}
         --kubernetes-node-selector {{ $key | quote }}:{{ $val | quote }} \
         {{- end }}
+        {{- range .Values.runners.nodeTolerations }}
+        {{-   $keyValue := .key }}
+        {{-   if eq (.operator | default "Equal") "Equal"  }}
+        {{-     $keyValue = print $keyValue "=" (.value | default "" ) }}
+        {{-   end }}
+        --kubernetes-node-tolerations {{ $keyValue }}:{{ .effect | quote }} \
+        {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
         --kubernetes-pod-labels {{ $key | quote }}:{{ $value | quote }} \
         {{- end }}
