@@ -14,7 +14,7 @@ rules:
   resources: ['podsecuritypolicies']
   verbs:     ['use']
   resourceNames:
-  - {{ template "gitlab-runner.fullname" . }}
+  - {{ .Values.podSecurityPolicy.name }}
 {{ end }}
 - apiGroups: [""]
   {{- if .Values.rbac.resources }}
