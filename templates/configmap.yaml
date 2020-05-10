@@ -22,6 +22,8 @@ data:
 
     if [[ -f /secrets/gcs-applicaton-credentials-file ]]; then
       export GOOGLE_APPLICATION_CREDENTIALS="/secrets/gcs-applicaton-credentials-file"
+    elif [[ -f /secrets/gcs-application-credentials-file ]]; then
+      export GOOGLE_APPLICATION_CREDENTIALS="/secrets/gcs-application-credentials-file"
     else
       if [[ -f /secrets/gcs-access-id && -f /secrets/gcs-private-key ]]; then
         export CACHE_GCS_ACCESS_ID=$(cat /secrets/gcs-access-id)
@@ -54,7 +56,7 @@ data:
     log_format = {{ .Values.logFormat | quote }}
     {{- end }}
     {{- if .Values.metrics.enabled }}
-    listen_address = '[::]:9252'
+    listen_address = ':9252'
     {{- end }}
   configure: |
     set -e
@@ -72,6 +74,13 @@ data:
         {{- range $key, $val := .Values.runners.nodeSelector }}
         --kubernetes-node-selector {{ $key | quote }}:{{ $val | quote }} \
         {{- end }}
+        {{- range .Values.runners.nodeTolerations }}
+        {{-   $keyValue := .key }}
+        {{-   if eq (.operator | default "Equal") "Equal"  }}
+        {{-     $keyValue = print $keyValue "=" (.value | default "" ) }}
+        {{-   end }}
+        --kubernetes-node-tolerations {{ $keyValue }}:{{ .effect | quote }} \
+        {{- end }}
         {{- range $key, $value := .Values.runners.podLabels }}
         --kubernetes-pod-labels {{ $key | quote }}:{{ $value | quote }} \
         {{- end }}
@@ -83,6 +92,9 @@ data:
         {{- end }}
         {{- if and (hasKey .Values.runners "runUntagged") .Values.runners.runUntagged }}
         --run-untagged=true \
+        {{- end }}
+        {{- if and (hasKey .Values.runners "protected") .Values.runners.protected }}
+        --access-level="ref_protected" \
         {{- end }}
         --non-interactive
 

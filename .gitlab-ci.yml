@@ -1,4 +1,10 @@
-image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-charts-build-base
+default:
+  image: registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-charts-build-base
+  tags:
+  - gitlab-org
+
+variables:
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/gitlab-runner
 
 stages:
 - test
@@ -46,8 +52,6 @@ release beta:
   - 'echo "To install repository run: helm repo add gitlab-runner-beta ${REPO_URL} && helm repo update"'
   only:
   - master@gitlab-org/charts/gitlab-runner
-  tags:
-  - release
 
 release stable:
   stage: release
