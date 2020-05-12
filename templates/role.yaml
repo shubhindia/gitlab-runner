@@ -9,7 +9,7 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 rules:
-{{- if .Values.podSecurityPolicy.enabled -}}
+{{- if .Values.podSecurityPolicy.enabled }}
 - apiGroups: ['policy']
   resources: ['podsecuritypolicies']
   verbs:     ['use']
