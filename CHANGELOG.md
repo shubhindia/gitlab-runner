@@ -1,3 +1,16 @@
+## v0.17.0-rc1 (2020-05-12)
+
+### New features
+
+- Expose settings for kubernetes resource limits and requests overwrites !220 (Alexander Petermann @lexxxel)
+- Add support for setting Node Tolerations !188 (Zeyu Ye @Shuliyey)
+
+### Maintenance
+
+- Update package name !234
+- Pin CI jobs to gitlab-org runners !222
+- Update GitLab Runner version to 13.0.0-rc1
+
 ## v0.16.0 (2020-04-22)
 
 ### New features
