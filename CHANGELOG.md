@@ -1,16 +1,4 @@
-## v0.17.0-rc3 (2020-05-20)
-
-### Maintenance
-
-- Update GitLab Runner version to 13.0.0-rc3
-
-## v0.17.0-rc2 (2020-05-15)
-
-### Maintenance
-
-- Update GitLab Runner version to 13.0.0-rc2
-
-## v0.17.0-rc1 (2020-05-12)
+## v0.17.0 (2020-05-20)
 
 ### New features
 
@@ -19,9 +7,9 @@
 
 ### Maintenance
 
-- Update package name !234
+- Update GitLab Runner version to 13.0.0
+- Update package name in note !234
 - Pin CI jobs to gitlab-org runners !222
-- Update GitLab Runner version to 13.0.0-rc1
 
 ## v0.16.0 (2020-04-22)
 
