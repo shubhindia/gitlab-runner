@@ -246,7 +246,16 @@ runners:
     # memoryLimit: 256Mi
     # cpuRequests: 100m
     # memoryRequests: 128Mi
-    # image: gitlab/gitlab-runner-helper:x86_64-latest
+    # image: "gitlab/gitlab-runner-helper:x86_64-${CI_RUNNER_REVISION}"
+
+  ## Helper container security context configuration
+  ## Refer to https://docs.gitlab.com/runner/executors/kubernetes.html#using-security-context
+  # pod_security_context:
+  #   run_as_non_root: true
+  #   run_as_user: 100
+  #   run_as_group: 100
+  #   fs_group: 65533
+  #   supplemental_groups: [101, 102]
 
   ## Service Account to be used for runners
   ##

@@ -57,6 +57,24 @@
   value: {{ default "" .Values.runners.helpers.image | quote }}
 - name: KUBERNETES_PULL_POLICY
   value: {{ default "" .Values.runners.imagePullPolicy | quote }}
+{{- if .Values.runners.pod_security_context }}
+{{-   if .Values.runners.pod_security_context.run_as_non_root }}
+- name: KUBERNETES_POD_SECURITY_CONTEXT_RUN_AS_NON_ROOT
+  value: "true"
+{{-   end }}
+{{-   if .Values.runners.pod_security_context.run_as_user }}
+- name: KUBERNETES_POD_SECURITY_CONTEXT_RUN_AS_USER
+  value: {{ .Values.runners.pod_security_context.run_as_user | quote }}
+{{-   end }}
+{{-   if .Values.runners.pod_security_context.run_as_group }}
+- name: KUBERNETES_POD_SECURITY_CONTEXT_RUN_AS_GROUP
+  value: {{ .Values.runners.pod_security_context.run_as_group | quote }}
+{{-   end }}
+{{-   if .Values.runners.pod_security_context.fs_group }}
+- name: KUBERNETES_POD_SECURITY_CONTEXT_FS_GROUP
+  value: {{ .Values.runners.pod_security_context.fs_group | quote }}
+{{-   end }}
+{{- end }}
 {{- if .Values.runners.cache -}}
 {{ include "gitlab-runner.cache" . }}
 {{- end }}

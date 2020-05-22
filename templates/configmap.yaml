@@ -89,6 +89,13 @@ data:
         {{- if and (hasKey .Values.runners "protected") .Values.runners.protected }}
         --access-level="ref_protected" \
         {{- end }}
+        {{- if .Values.runners.pod_security_context }}
+        {{-   if .Values.runners.pod_security_context.supplemental_groups }}
+        {{-     range $gid := .Values.runners.pod_security_context.supplemental_groups }}
+        --kubernetes-pod-security-context-supplemental-groups {{ $gid | quote }} \
+        {{-     end }}
+        {{-   end }}
+        {{- end }}
         --non-interactive
 
       retval=$?
