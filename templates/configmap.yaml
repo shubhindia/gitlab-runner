@@ -58,6 +58,9 @@ data:
     {{- if .Values.metrics.enabled }}
     listen_address = ':9252'
     {{- end }}
+    {{- if .Values.sentryDsn }}
+    sentry_dsn = "{{ .sentryDsn }}"
+    {{- end }}
   configure: |
     set -e
     cp /init-secrets/* /secrets

@@ -74,6 +74,11 @@ checkInterval: 30
 ##
 # logFormat:
 
+## Configure GitLab Runner's Sentry DSN.
+## ref https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section
+##
+# sentryDsn:
+
 ## For RBAC support:
 rbac:
   create: false
