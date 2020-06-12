@@ -1,3 +1,14 @@
+## v0.18.0-rc1 (2020-06-12)
+
+### Maintenance
+
+- Update GitLab Runner version to 13.1.0-rc1
+
+### Other changes
+
+- Fix unregister when using token secret !231 (Bernd @arabus)
+- Support specifying pod security context. !219 (Chen Yufei @cyfdecyf)
+
 ## v0.17.1 (2020-06-01)
 
 ### Maintenance
