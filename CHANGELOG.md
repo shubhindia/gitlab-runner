@@ -1,3 +1,9 @@
+## v0.18.1 (2020-07-01)
+
+### Maintenance
+
+- Update GitLab Runner version to 13.1.1
+
 ## v0.18.0 (2020-06-19)
 
 ### Maintenance
