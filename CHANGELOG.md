@@ -1,15 +1,9 @@
-## v0.19.0-rc2 (2020-07-15)
-
-### New features
-
-- Update GitLab Runner version to 13.2.0-rc2
-
-## v0.19.0-rc1 (2020-07-09)
+## v0.19.0 (2020-07-20)
 
 ### New features
 
 - Allow user to define PodSecurityPolicy !184 (Paweł Kalemba @pkalemba)
-- Update GitLab Runner version to 13.2.0-rc1
+- Update GitLab Runner version to 13.2.0
 
 ### Documentation changes
 
