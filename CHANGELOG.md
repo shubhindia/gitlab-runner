@@ -1,3 +1,13 @@
+## v0.17.2 (2020-07-30)
+
+### Security
+
+- Update GitLab Runner version to 13.0.2
+
+### Other changes
+
+- Add `release stable` job for security fork !252
+
 ## v0.17.1 (2020-06-01)
 
 ### Maintenance
