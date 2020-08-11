@@ -1,3 +1,14 @@
+## v0.20.0-rc1 (2020-08-11)
+
+### New features
+
+- Enable custom commands !250
+
+### Maintenance
+
+- Add `release stable` job for security fork !252
+- Update changelog generator to accept new labels !249
+
 ## v0.19.0 (2020-07-20)
 
 ### New features
