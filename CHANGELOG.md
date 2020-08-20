@@ -1,7 +1,8 @@
-## v0.20.0-rc1 (2020-08-11)
+## v0.20.0 (2020-08-20)
 
 ### New features
 
+- Update GitLab Runner version to 13.3.0
 - Enable custom commands !250
 
 ### Maintenance
