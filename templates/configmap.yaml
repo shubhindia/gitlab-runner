@@ -59,7 +59,7 @@ data:
     listen_address = ':9252'
     {{- end }}
     {{- if .Values.sentryDsn }}
-    sentry_dsn = "{{ .sentryDsn }}"
+    sentry_dsn = "{{ .Values.sentryDsn }}"
     {{- end }}
   configure: |
     set -e
