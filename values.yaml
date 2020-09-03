@@ -5,6 +5,10 @@
 ##
 ## ref: https://hub.docker.com/r/gitlab/gitlab-runner/tags/
 ##
+## Note: If you'd like to change the image to our ubuntu release
+##       don't forget to change the securityContext, as these
+##       images run on different user ids.
+##
 # image: gitlab/gitlab-runner:alpine-v11.6.0
 
 ## Specify a imagePullPolicy
@@ -323,7 +327,9 @@ runners:
 securityContext:
   fsGroup: 65533
   runAsUser: 100
-
+  ## Note: values for our ubuntu image:
+  # fsGroup: 999
+  # runAsUser: 999
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
