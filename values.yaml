@@ -327,7 +327,7 @@ runners:
 securityContext:
   fsGroup: 65533
   runAsUser: 100
-  ## Note: values for our ubuntu image:
+  ## Note: values for the ubuntu image:
   # fsGroup: 999
   # runAsUser: 999
 
