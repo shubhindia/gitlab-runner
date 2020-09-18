@@ -1,3 +1,48 @@
+## v0.21.0-rc1 (2020-09-09)
+
+### Maintenance
+
+- Update GitLab Runner version to 13.4.0-rc1
+- Fix changelog generator config to catch all maintenance related labels !255
+
+### Other changes
+
+- Add scripts/security-harness script !258
+
+## v0.20.0 (2020-08-20)
+
+### New features
+
+- Update GitLab Runner version to 13.3.0
+- Enable custom commands !250
+
+### Maintenance
+
+- Add `release stable` job for security fork !252
+- Update changelog generator to accept new labels !249
+
+## v0.19.0 (2020-07-20)
+
+### New features
+
+- Allow user to define PodSecurityPolicy !184 (Paweł Kalemba @pkalemba)
+- Update GitLab Runner version to 13.2.0
+
+### Documentation changes
+
+- Fix external links within values.yaml !248 (Alexandre Jardin @alexandre.jardin)
+
+## v0.18.0 (2020-06-19)
+
+### Maintenance
+
+- Update GitLab Runner version to 13.1.0
+
+### Other changes
+
+- Fix unregister when using token secret !231 (Bernd @arabus)
+- Support specifying pod security context. !219 (Chen Yufei @cyfdecyf)
+
 ## v0.17.1 (2020-06-01)
 
 ### Maintenance
