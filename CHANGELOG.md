@@ -1,8 +1,8 @@
-## v0.21.0-rc1 (2020-09-09)
+## v0.21.0 (2020-09-21)
 
 ### Maintenance
 
-- Update GitLab Runner version to 13.4.0-rc1
+- Update GitLab Runner version to 13.4.0
 - Fix changelog generator config to catch all maintenance related labels !255
 
 ### Other changes
