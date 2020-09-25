@@ -1,3 +1,9 @@
+## v0.20.2 (2020-09-25)
+
+### Security
+
+- Update GitLab Runner version to 13.3.2
+
 ## v0.20.1 (2020-08-25)
 
 ### Maintenance
