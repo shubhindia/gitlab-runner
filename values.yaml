@@ -405,3 +405,11 @@ podLabels: {}
   #   pods:
   #     metricName: gitlab_runner_jobs
   #     targetAverageValue: 400m
+
+
+  ## This is something which is very experimental at current stage. 
+  ## When we use gitlab runner in kuberntes, we can have docker in docker (dind) to do our deployments.
+  ## Add an option to ship kubernetes config file so that, we can talk to kubernetes api from gitlab runner.
+
+  kubeconf:
+    enabled: true
