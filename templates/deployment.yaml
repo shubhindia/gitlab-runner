@@ -61,6 +61,11 @@ spec:
           readOnly: true
           mountPath: /home/gitlab-runner/.gitlab-runner/certs/
         {{- end }}
+        {{- if .Values.kubeconf.enabled}}
+        - name: kubeconf
+          mountPath: /kubeconf
+          readOnly: true
+        {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
       serviceAccountName: {{ if .Values.rbac.create }}{{ include "gitlab-runner.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end }}
@@ -102,6 +107,11 @@ spec:
         - name: custom-certs
           readOnly: true
           mountPath: /home/gitlab-runner/.gitlab-runner/certs/
+        {{- end }}
+        {{- if .Values.kubeconf.enabled}}
+        - name: kubeconf
+          readOnly: true
+          mountPath: /kubeconf
         {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
